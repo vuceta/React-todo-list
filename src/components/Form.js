@@ -1,15 +1,14 @@
 import React from "react";
 
-function Form({ setInputText, todos, setTodos, inputText }) {
+function Form({ setInputText, submitToDoHandler, inputText, editTodo }) {
   const inputTextHandler = (e) => {
-    console.log(inputTextHandler);
     setInputText(e.target.value);
   };
-  const submitToDoHandler = (e) => {
-    e.preventDefault();
-    setTodos([...todos, { text: inputText, id: inputText }]);  //da li mogu ovde ostaviti ID da bude inputText
-    setInputText("");
+
+  const deleteInputHandler = (e) => {
+    setInputText(e.target.reset);
   };
+
   return (
     <form>
       <input
@@ -19,7 +18,14 @@ function Form({ setInputText, todos, setTodos, inputText }) {
         className="todo-input"
       />
       <button onClick={submitToDoHandler} className="todo-button" type="submit">
-        <i className="fas fa-plus-square"></i>
+        {editTodo ? (
+          <i className="fas fa-save"></i>
+        ) : (
+          <i className="fas fa-plus-square"></i>
+        )}
+      </button>
+      <button onClick={deleteInputHandler} className="todo-button" type="reset">
+        <i className="fas fa-minus-square"></i>
       </button>
       <div className="select"></div>
     </form>

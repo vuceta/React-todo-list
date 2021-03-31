@@ -1,11 +1,13 @@
-body {
-  background-image: linear-gradient(120deg, #5a5648 0%, #552d22 100%);
-  color: white;
-  font-family: "Poppins", sans-serif;
-  min-height: 100vh;
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body {
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
 }
 header {
   font-size: 2rem;
@@ -18,7 +20,6 @@ form {
   justify-content: center;
   align-items: center;
 }
-
 form input,
 form button {
   padding: 0.5rem;
@@ -26,19 +27,16 @@ form button {
   border: none;
   background: white;
 }
-
 form button {
   color: #ff6f47;
   background: #f7fffe;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 form button:hover {
   background: #ff6f47;
   color: white;
 }
-
 .todo-container {
   display: flex;
   justify-content: center;
@@ -46,7 +44,7 @@ form button:hover {
 }
 
 .todo-list {
-  min-width: 20%;
+  min-width: 30%;
   list-style: none;
 }
 
@@ -60,8 +58,16 @@ form button:hover {
   align-items: center;
   transition: all 1s ease;
 }
+.filter-todo {
+  padding: 1rem;
+}
+.todo li {
+  flex: 1;
+}
 
-.trash-btn {
+.trash-btn,
+.complete-btn,
+.edit-btn {
   background: #ff6f47;
   color: white;
   border: none;
@@ -69,11 +75,29 @@ form button:hover {
   cursor: pointer;
   font-size: 1rem;
 }
+.complete-btn {
+  background: rgb(11, 212, 162);
+}
+
+.edit-btn {
+  background: rgb(179, 176, 25);
+}
 
 .todo-item {
   padding: 0rem 0.5rem;
 }
 
-.fa-trash {
+.fa-trash,
+.fa-check {
   pointer-events: none;
+}
+
+.fall {
+  transform: translateY(10rem) rotateZ(20deg);
+  opacity: 0;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
 }

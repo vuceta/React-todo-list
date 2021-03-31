@@ -1,7 +1,14 @@
 import React from "react";
 import Todo from "./Todo";
 
-function ToDoApp({ todos, setTodos }) {
+function ToDoApp({
+  todos,
+  setTodos,
+  deleteHandler,
+  completeHandler,
+  setEditTodo,
+  editHandler,
+}) {
   return (
     <div className="todo-container">
       <ul className="todo-list">
@@ -12,6 +19,10 @@ function ToDoApp({ todos, setTodos }) {
             setTodos={setTodos}
             todos={todos}
             todo={todo}
+            deleteHandler={deleteHandler}
+            completeHandler={completeHandler}
+            setEditTodo={setEditTodo}
+            editHandler={editHandler}
           />
         ))}
       </ul>
