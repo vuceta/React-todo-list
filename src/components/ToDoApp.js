@@ -8,11 +8,12 @@ function ToDoApp({
   completeHandler,
   setEditTodo,
   editHandler,
+  filteredTodos,
 }) {
   return (
     <div className="todo-container">
       <ul className="todo-list">
-        {todos.map((todo) => (
+        {filteredTodos.map((todo) => (
           <Todo
             key={todo.id}
             text={todo.text}

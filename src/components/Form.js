@@ -1,12 +1,18 @@
 import React from "react";
 
-function Form({ setInputText, submitToDoHandler, inputText, editTodo }) {
+function Form({
+  setInputText,
+  submitToDoHandler,
+  inputText,
+  editTodo,
+  statusHandler,
+}) {
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
   };
 
   const deleteInputHandler = (e) => {
-    setInputText(e.target.reset);
+    setInputText("");
   };
 
   return (
@@ -16,6 +22,7 @@ function Form({ setInputText, submitToDoHandler, inputText, editTodo }) {
         onChange={inputTextHandler}
         type="text"
         className="todo-input"
+        placeholder="Type text here"
       />
       <button onClick={submitToDoHandler} className="todo-button" type="submit">
         {editTodo ? (
@@ -24,10 +31,20 @@ function Form({ setInputText, submitToDoHandler, inputText, editTodo }) {
           <i className="fas fa-plus-square"></i>
         )}
       </button>
-      <button onClick={deleteInputHandler} className="todo-button" type="reset">
+      <button
+        onClick={deleteInputHandler}
+        className="todo-button"
+        type="button"
+      >
         <i className="fas fa-minus-square"></i>
       </button>
-      <div className="select"></div>
+      <div className="select">
+        <select onChange={statusHandler} name="todos" className="filter-todo">
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="uncompleted">Uncompleted</option>
+        </select>
+      </div>
     </form>
   );
 }
